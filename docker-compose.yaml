@@ -1,0 +1,39 @@
+version: "3.5"
+
+services:
+  quizz_players_mongodb:
+    image: mongo:4.2.6-bionic
+    container_name: players_mongodb
+    restart: always
+
+  quizz_players_uwsgi:
+    build: ./players_uwsgi
+    container_name: players_uwsgi
+    restart: always
+    volumes:
+      - ./players_uwsgi:/usr/src/app
+    environment:
+      CONFIGURATION_SETUP: config.DevelopmentConfig
+    expose: 
+      - "8080"
+    depends_on:
+      - quizz_players_mongodb
+
+
+#  quizz_rabbit:
+#    image: rabbitmq:3.8.3
+#    container_name: messages
+#    restart: always
+#    hostname: quizz_messages
+#    depends_on:
+#      - quizz_players_uwsgi
+
+  quizz_nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+#      - quizz_rabbit
+      - quizz_players_uwsgi
