@@ -10,8 +10,8 @@ All responses will have the form
   },
   "success": true,
   "errors": {
-		"id": "0001",
-		"message": "Invalid Field(s)"
+  	"id": "0001",
+	"message": "Invalid Field(s)"
   }
 }
 ```
