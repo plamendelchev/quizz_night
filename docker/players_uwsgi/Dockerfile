@@ -1,4 +1,4 @@
-FROM quizz_flask/base
+FROM quizz_flask:base
 
 WORKDIR /usr/src/app
 
