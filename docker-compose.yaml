@@ -1,51 +1,51 @@
 version: "3.5"
 
 services:
-  quizz_players_mongodb:
+  players_mongodb:
     image: mongo:4.2.6-bionic
     container_name: players_mongodb
     restart: always
 
-  quizz_players_uwsgi:
-    build: ./docker/players_uwsgi
+  players_uwsgi:
+    build: ./docker/players
     container_name: players_uwsgi
     restart: always
     volumes:
-      - ./docker/players_uwsgi:/usr/src/app
+      - ./docker/players:/usr/src/app
     environment:
       CONFIGURATION_SETUP: config.DevelopmentConfig
     expose: 
       - "8080"
     depends_on:
-      - quizz_players_mongodb
+      - players_mongodb
 
-#  quizz_teams_mongodb:
+#  teams_mongodb:
 #    image: mongo:4.2.6-bionic
 #    container_name: teams_mongodb
 #    restart: always
 
-#  quizz_teams_uwsgi:
-#    build: ./docker/teams_uwsgi
+#  teams_uwsgi:
+#    build: ./docker/teams
 #    container_name: teams_uwsgi
 #    restart: always
 #    volumes:
-#      - ./docker/teams_uwsgi:/usr/src/app
+#      - ./docker/teams:/usr/src/app
 #    environment:
 #      CONFIGURATION_SETUP: config.DevelopmentConfig
 #    expose: 
 #      - "8080"
 #    depends_on:
-#      - quizz_teams_mongodb
+#      - teams_mongodb
 
-#  quizz_rabbit:
+#  rabbit:
 #    image: rabbitmq:3.8.3
 #    container_name: messages
 #    restart: always
-#    hostname: quizz_messages
+#    hostname: messages
 #    depends_on:
-#      - quizz_players_uwsgi
+#      - players_uwsgi
 
-  quizz_nginx:
+  nginx:
     build: ./docker/nginx
     container_name: nginx
     restart: always
@@ -54,6 +54,6 @@ services:
     ports:
       - "80:80"
     depends_on:
-#      - quizz_rabbit
-      - quizz_players_uwsgi
-#      - quizz_teams_uwsgi
+#      - rabbit
+      - players_uwsgi
+#      - teams_uwsgi
