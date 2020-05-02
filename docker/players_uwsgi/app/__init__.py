@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
-from app.myresponse import MyResponse
+from app.views import MyResponse
 
 db = MongoEngine()
 

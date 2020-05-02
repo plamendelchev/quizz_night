@@ -1,5 +1,5 @@
 from app.models import Player
-from app.myresponse import MyResponse
+from app.views import MyResponse
 from flask import request
 
 # Default function

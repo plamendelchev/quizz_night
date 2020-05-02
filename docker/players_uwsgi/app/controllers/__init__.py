@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.controllers.controllers import *
+from .controllers import *
 
 blueprints = Blueprint('players', __name__)
 
