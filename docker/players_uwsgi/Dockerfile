@@ -2,8 +2,6 @@ FROM quizz_flask:base
 
 WORKDIR /usr/src/app
 
-COPY app.py .
-COPY app.ini .
-COPY wsgi.py .
+COPY . .
 
-CMD ["uwsgi", "--ini", "app.ini"]
+CMD ["uwsgi", "--ini", "./app.ini"]

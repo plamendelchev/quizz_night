@@ -1,4 +1,4 @@
-from app import application
+from os import environ
+from app import create_application
 
-if __name__ == '__main__':
-	application.run()
+application = create_application(environ['CONFIGURATION_SETUP'])

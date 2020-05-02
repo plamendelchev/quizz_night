@@ -1,5 +1,5 @@
-from .db import db
-from .error import Error
+from app import db
+from app.models import Error
 
 class Player(db.Document):
     username = db.StringField(max_length=20, required=True, unique=True)
@@ -60,3 +60,17 @@ class Player(db.Document):
             result = None
             success = True
         return result, success
+
+class Error:
+    errors = (
+        {'id': '0001', 'message': 'Invalid Field(s)'},
+        {'id': '0002', 'message': 'Player already exists'},
+        {'id': '0003', 'message': 'Player does not exist'},
+        {'id': '0004', 'message': 'Missing key(s)'}
+        )
+
+    @classmethod
+    def id(self, id):
+        for row in self.errors:
+            if row['id'] == id:
+                return row
