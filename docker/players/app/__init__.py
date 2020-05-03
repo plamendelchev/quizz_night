@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
-from app.views import MyResponse
 
 db = MongoEngine()
 
@@ -13,7 +12,6 @@ def create_application(config):
 def initialize_flask(config):
     application = Flask('app')
     application.config.from_object(config)
-    application.response_class = MyResponse
     return application
 
 def initialize_db(application):

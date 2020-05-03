@@ -1,1 +1,1 @@
-from .myresponse import MyResponse
+from .view import *
