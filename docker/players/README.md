@@ -4,9 +4,9 @@
 
 **Fields of each Player**
 
-`"username":string` - required, unique
-`"display_name":string` - required, unique
-`"team_name":string` 
+- `"username":string` - required, unique
+- `"display_name":string` - required, unique
+- `"team_name":string` 
 
 ### List all Players
 
@@ -45,7 +45,7 @@
 
 **Response**
 
-`200 OK` on success. When the player exists
+- `200 OK` on success. When the player exists
 
 ```json
 {
@@ -58,8 +58,8 @@
   "errors": null
 }
 ```
-
-`404 Not Found` on failure. When the player does not exist
+ 
+- `404 Not Found` on failure. When the player does not exist
 
 ```json
 {
@@ -86,7 +86,7 @@
 
 **Response**
 
-`200 OK` on success. The Player ID will be assigned automatically on registration. 
+- `200 OK` on success. The Player ID will be assigned automatically on registration. 
 
 ```json
 {
@@ -100,7 +100,7 @@
 }
 ```
 
-`400 Bad Request` on failure. When the player already exists
+- `400 Bad Request` on failure. When the player already exists
 
 ```json
 {
@@ -127,7 +127,7 @@
 
 **Response**
 
-`200 OK` on success. The updated Player will be returned
+- `200 OK` on success. The updated Player will be returned
 
 ```json
 {
@@ -141,7 +141,7 @@
 }
 ```
 
-`400 Bad Request` on failure. When the Player does not exist or the username/display_name is already taken
+- `400 Bad Request` on failure. When the Player does not exist or the username/display_name is already taken
 
 ```json
 {
@@ -162,7 +162,7 @@
 
 **Response**
 
-`200 OK` on success. When the player has been deleted successfully
+- `200 OK` on success. When the player has been deleted successfully
 
 ```json
 {
@@ -172,7 +172,7 @@
 }
 ```
 
-`404 Not Found` on failure. When the Player does not exist
+- `404 Not Found` on failure. When the Player does not exist
 ```json
 {
   "result": null,
