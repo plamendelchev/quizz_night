@@ -4,9 +4,9 @@
 
 **Fields of each Team**
 
-`"name":string` - required, unique
-`"display_name":string` - required, unique
-`"players":array`
+- `"name":string` - required, unique
+- `"display_name":string` - required, unique
+- `"players":array`
 
 ### List all Teams
 
@@ -63,7 +63,7 @@
 
 **Response**
 
-`200 OK` on success
+- `200 OK` on success
 
 ```json
 {
@@ -86,7 +86,7 @@
 }
 ```
 
-`404 Not Found` on failure. When the team does not exist
+- `404 Not Found` on failure. When the team does not exist
 
 ```json
 {
@@ -114,7 +114,7 @@
 
 **Response**
 
-`200 OK` on success. The Team ID will be assigned automatically. 
+- `200 OK` on success. The Team ID will be assigned automatically. 
 
 ```json
 {
@@ -136,7 +136,7 @@
   "errors": null
 ```
 
-`400 Bad Request` on failure. When the player already exists
+- `400 Bad Request` on failure. When the player already exists
 
 ```json
 {
@@ -163,7 +163,7 @@
 
 **Response**
 
-`200 OK` on success. The updated team will be returned
+- `200 OK` on success. The updated team will be returned
 
 ```json
 {
@@ -177,7 +177,7 @@
 }
 ```
 
-`400 Bad Request` on failure. When the player does not exist or the name/display_name is already taken
+- `400 Bad Request` on failure. When the player does not exist or the name/display_name is already taken
 
 ```json
 {
@@ -198,7 +198,7 @@
 
 **Response**
 
-`200 OK` on success. When the Team has been deleted successfully
+- `200 OK` on success. When the Team has been deleted successfully
 
 ```json
 {
@@ -208,7 +208,7 @@
 }
 ```
 
-`404 Not Found` on failure. When the Team does not exist
+- `404 Not Found` on failure. When the Team does not exist
 ```json
 {
   "result": null,
