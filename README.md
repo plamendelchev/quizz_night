@@ -10,8 +10,8 @@ All responses will have the form
   },
   "success": true,
   "errors": {
-		"id": "0001",
-		"message": "Invalid Field(s)"
+  	"id": "0001",
+	"message": "Invalid Field(s)"
   }
 }
 ```
@@ -74,8 +74,8 @@ All responses will have the form
   "result": null,
   "success": false,
   "errors": {
-		"id": "0003",
-		"message": "Player does not exist"
+	"id": "0003",
+	"message": "Player does not exist"
   }
 }
 ```
@@ -116,8 +116,8 @@ The Player ID will be assigned automatically on registration.
   "result": null,
   "success": false,
   "errors": {
-		"id": "0002",
-		"message": "Player already exists"
+	"id": "0002",
+	"message": "Player already exists"
   }
 }
 ```
@@ -156,8 +156,8 @@ The Player ID will be assigned automatically on registration.
   "result": null,
   "success": false,
   "errors": {
-		"id": "0002",
-		"message": "Player already exists"
+	"id": "0002",
+	"message": "Player already exists"
   }
 }
 ```
@@ -186,8 +186,8 @@ The Player ID will be assigned automatically on registration.
   "result": null,
   "success": false,
   "errors": {
-		"id": "0003",
-		"message": "Player does not exist"
+	"id": "0003",
+	"message": "Player does not exist"
   }
 }
 ```
