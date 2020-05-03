@@ -28,6 +28,6 @@ All responses will have the form:
 
 ## Endpoints
 
-`/players` [endpoint reference](docker/players/README.md)
-`/teams` [endpoint reference](docker/teams/README.md)
+- `/players` [endpoint reference](docker/players/README.md)
+- `/teams` [endpoint reference](docker/teams/README.md)
 
