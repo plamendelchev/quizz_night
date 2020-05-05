@@ -111,7 +111,6 @@
 - `"display_name":string` 
 - `"players":array` - optional
 
-
 **Response**
 
 - `200 OK` on success. The Team ID will be assigned automatically. 
@@ -157,9 +156,8 @@
 
 **Arguments**
 
-- `"username":string` 
+- `"name":string` 
 - `"display_name":string` 
-- `"players":array` - optional
 
 **Response**
 
@@ -168,16 +166,24 @@
 ```json
 {
   "result": {
-    "username": "pesho",
-    "name": "Pesho",
-    "team_id": 5
+    "name": "packovci",
+    "display_name": "Otbora na Paco",
+    "players": [
+      {
+        "username": "paco",
+        "display_name": "Packo"
+      },
+      {
+        "username": "mitko",
+        "display_name": "Mitku"
+      }
+    ]
   },
   "success": true,
   "errors": null
-}
 ```
 
-- `400 Bad Request` on failure. When the player does not exist or the name/display_name is already taken
+- `400 Bad Request` on failure. When the team does not exist or the name/display_name is already taken
 
 ```json
 {
@@ -216,6 +222,97 @@
   "errors": {
     "id": "0003",
     "message": "Team does not exist"
+  }
+}
+```
+
+### Adding players to a Team
+
+**Definition**
+
+`PATCH /teams/<name>/players`
+
+**Arguments**
+
+- `"username":string` 
+- `"display_name":string` 
+
+**Response**
+
+- `200 OK` on success. The updated team will be returned
+
+```json
+{
+  "result": {
+    "name": "packovci",
+    "display_name": "Otbora na Paco",
+    "players": [
+      {
+        "username": "paco",
+        "display_name": "Packo"
+      },
+      {
+        "username": "mitko",
+        "display_name": "Mitku"
+      }
+    ]
+  },
+  "success": true,
+  "errors": null
+```
+
+- `400 Bad Request` on failure. When the team does not exist 
+
+```json
+{
+  "result": null,
+  "success": false,
+  "errors": {
+    "id": "0002",
+    "message": "Team already exists"
+  }
+}
+```
+
+### Deleting players from a Team
+
+**Definition**
+
+`DELETE /teams/<name>/players/<username>`
+
+**Response**
+
+- `200 OK` on success. The updated team will be returned
+
+```json
+{
+  "result": {
+    "name": "packovci",
+    "display_name": "Otbora na Paco",
+    "players": [
+      {
+        "username": "paco",
+        "display_name": "Packo"
+      },
+      {
+        "username": "mitko",
+        "display_name": "Mitku"
+      }
+    ]
+  },
+  "success": true,
+  "errors": null
+```
+
+- `400 Bad Request` on failure. When the team does not exist 
+
+```json
+{
+  "result": null,
+  "success": false,
+  "errors": {
+    "id": "0002",
+    "message": "Team already exists"
   }
 }
 ```

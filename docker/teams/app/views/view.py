@@ -1,4 +1,4 @@
-from flask import Response, json
+from flask import json
 
 def generate_view(result, success):
     if success: # If success is True
