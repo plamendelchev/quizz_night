@@ -1,41 +1,41 @@
 version: "3.5"
 
 services:
-  players_mongodb:
-    image: mongo:4.2.6-bionic
-    container_name: players_mongodb
-    restart: always
-
-  players_uwsgi:
-    build: ./docker/players
-    container_name: players_uwsgi
-    restart: always
-    volumes:
-      - ./docker/players:/usr/src/app
-    environment:
-      CONFIGURATION_SETUP: config.DevelopmentConfig
-    expose: 
-      - "8080"
-    depends_on:
-      - players_mongodb
-
-#  teams_mongodb:
+#  players_mongodb:
 #    image: mongo:4.2.6-bionic
-#    container_name: teams_mongodb
+#    container_name: players_mongodb
 #    restart: always
 
-#  teams_uwsgi:
-#    build: ./docker/teams
-#    container_name: teams_uwsgi
+#  players_uwsgi:
+#    build: ./docker/players
+#    container_name: players_uwsgi
 #    restart: always
 #    volumes:
-#      - ./docker/teams:/usr/src/app
+#      - ./docker/players:/usr/src/app
 #    environment:
 #      CONFIGURATION_SETUP: config.DevelopmentConfig
 #    expose: 
 #      - "8080"
 #    depends_on:
-#      - teams_mongodb
+#      - players_mongodb
+
+  teams_mongodb:
+    image: mongo:4.2.6-bionic
+    container_name: teams_mongodb
+    restart: always
+
+  teams_uwsgi:
+    build: ./docker/teams
+    container_name: teams_uwsgi
+    restart: always
+    volumes:
+      - ./docker/teams:/usr/src/app
+    environment:
+      CONFIGURATION_SETUP: config.DevelopmentConfig
+    expose: 
+      - "8080"
+    depends_on:
+      - teams_mongodb
 
 #  rabbit:
 #    image: rabbitmq:3.8.3
@@ -55,5 +55,5 @@ services:
       - "80:80"
     depends_on:
 #      - rabbit
-      - players_uwsgi
-#      - teams_uwsgi
+#      - players_uwsgi
+      - teams_uwsgi
